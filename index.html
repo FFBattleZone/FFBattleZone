@@ -1,157 +1,240 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FF BattleZone</title>
-  <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" rel="stylesheet">
+  <title>টুর্নামেন্ট রেজিস্ট্রেশন</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <style>
-    .navbar {
-      background-color: #2d2d2d;
-    }
-    .navbar-brand, .navbar-item {
-      color: white !important;
-    }
-    .navbar-brand:hover, .navbar-item:hover {
-      color: #ffd700 !important;
-    }
-    .notice {
-      background-color: #ffcc00;
-      color: white;
-      padding: 10px;
-      text-align: center;
-    }
-    .carousel img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-    }
-    .card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
-    .join-btn {
-      background-color: #007bff;
-      color: white;
-    }
-    .join-btn:hover {
-      background-color: #0056b3;
-    }
-    footer {
-      background-color: #333;
+    /* Body Styling */
+    body {
+      background: linear-gradient(to right, #2c3e50, #4ca1af);
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
       color: #fff;
+    }
+
+    /* Centered Container */
+    .container {
+      margin-top: 50px;
+      max-width: 600px;
+    }
+
+    /* Form Styling */
+    .form-container {
+      background: #34495e;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+      position: relative;
+      transition: all 0.3s ease;
       text-align: center;
-      padding: 10px 0;
+    }
+
+    .form-container:hover {
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
+      transform: translateY(-5px);
+    }
+
+    /* Logo Styling */
+    .logo {
+      width: 150px;
+      height: auto;
+      margin: 0 auto 20px auto;
+      display: block;
+    }
+
+    /* Form Heading */
+    .form-container h2 {
+      color: #fff;
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 28px;
+    }
+
+    /* Form Label Styling */
+    .form-container .form-label {
+      color: #fff;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+
+    /* Input Fields */
+    .form-container .form-control {
+      background: #2c3e50;
+      border-radius: 10px;
+      border: none;
+      height: 45px;
+      padding: 10px;
+      font-size: 16px;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    .form-container .form-control:focus {
+      background: #3d566e;
+      border: 1px solid #4ca1af;
+      box-shadow: 0 0 10px rgba(76, 161, 175, 0.5);
+    }
+
+    /* Input Group Text */
+    .form-container .input-group-text {
+      background-color: #3d566e;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+    }
+
+    /* Buttons */
+    .btn-submit {
+      background: linear-gradient(to right, #4ca1af, #2c3e50);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .btn-submit:hover {
+      background: linear-gradient(to right, #2c3e50, #4ca1af);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-return {
+      background: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .btn-return:hover {
+      background: #4ca1af;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-return a {
+      text-decoration: none;
+      color: white;
+    }
+
+    /* Checkbox Styling */
+    .form-check-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    /* Responsive Design */
+    @media screen and (max-width: 768px) {
+      .form-container {
+        padding: 20px;
+      }
+
+      .form-container h2 {
+        font-size: 24px;
+      }
+
+      .btn-submit,
+      .btn-return {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<nav class="navbar">
   <div class="container">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="#">
-        <img src="https://i.ibb.co.com/j5RXMkt/create-a-great-logo-with-text-ff-battlezone-text-c-Ch0-Hlx-XSQKO4-Qk-Rh6-XBVdw-Jx-Pr-WZTy-Scu6-Y3ir.png" alt="FF BattleZone Logo" width="150" height="50">
-      </a>
-      <span class="navbar-burger" data-target="navbarMenu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </span>
-    </div>
-    <div id="navbarMenu" class="navbar-menu">
-      <div class="navbar-end">
-        <a class="navbar-item" href="#">Home</a>
-        <a class="navbar-item" href="#tournaments">Tournaments</a>
-        <a class="navbar-item" href="#">Contact Us</a>
-        <a class="button is-primary navbar-item" href="#">Login</a>
-        <a class="button is-warning navbar-item" href="#">Register</a>
-      </div>
-    </div>
-  </div>
-</nav>
+    <div class="form-container">
+      <!-- Logo -->
+      <img src="https://via.placeholder.com/150" alt="Tournament Logo" class="logo">
+      
+      <h2>টুর্নামেন্ট রেজিস্ট্রেশন</h2>
 
-<div class="notice">
-  Notice: Register for the latest Free Fire tournaments and win exciting rewards!
-</div>
-
-<div class="carousel">
-  <div class="carousel-item">
-    <img src="https://via.placeholder.com/800x200" alt="Banner 1">
-  </div>
-  <div class="carousel-item">
-    <img src="https://via.placeholder.com/800x200" alt="Banner 2">
-  </div>
-  <div class="carousel-item">
-    <img src="https://via.placeholder.com/800x200" alt="Banner 3">
-  </div>
-</div>
-
-<div class="container my-5">
-  <h3 class="title is-4 has-text-centered">
-    <img src="https://i.ibb.co.com/82zQyPx/unnamed-2.png" alt="Logo" style="width: 40px; vertical-align: middle;">
-    Tournament
-  </h3>
-  <div class="columns is-multiline">
-    <div class="column is-one-third">
-      <div class="card">
-        <div class="card-image">
-          <figure class="image is-4by3">
-            <img src="https://i.ibb.co.com/9gYPgLF/Untitled-Project.jpg" alt="Game 1">
-          </figure>
+      <form id="registrationForm" action="https://formspree.io/f/mdkodyyv" method="POST">
+        <div class="mb-3">
+          <label for="playerName" class="form-label">প্লেয়ারের নাম</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="fa-solid fa-user-tie"></i></span>
+            <input type="text" class="form-control" id="playerName" name="playerName" placeholder="আপনার নাম লিখুন" required>
+          </div>
         </div>
-        <div class="card-content has-text-centered">
-          <h5 class="title is-6">Soolo Battle Royale</h5>
-          <button class="button join-btn">Join</button>
+
+        <div class="mb-3">
+          <label for="playerID" class="form-label">প্লেয়ার আইডি</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="fa-solid fa-id-badge"></i></span>
+            <input type="text" class="form-control" id="playerID" name="playerID" placeholder="প্লেয়ার আইডি লিখুন" required>
+          </div>
         </div>
-      </div>
+
+        <div class="mb-3">
+          <label for="idLevel" class="form-label">আইডি লেভেল</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="fa-solid fa-trophy"></i></span>
+            <input type="number" class="form-control" id="idLevel" name="idLevel" placeholder="লেভেল (৫০-৯৯)" required>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">ইমেইল ঠিকানা</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
+            <input type="email" class="form-control" id="email" name="email" placeholder="আপনার ইমেইল লিখুন" required>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="phoneNumber" class="form-label">ফোন নম্বর</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
+            <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="আপনার ফোন নম্বর লিখুন" required>
+          </div>
+        </div>
+
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="checkbox" id="termsCheckbox" required>
+          <label class="form-check-label" for="termsCheckbox">আমি টুর্নামেন্টের শর্তাবলী মেনে চলতে সম্মত।</label>
+        </div>
+
+        <button type="submit" class="btn-submit">
+          রেজিস্টার নাও
+        </button>
+      </form>
+
+      <button type="button" class="btn-return">
+        <a href="https://ffbattlezone.github.io/FFBattleZonee/">হোমে ফিরে যান</a>
+      </button>
     </div>
-    <!-- Repeat card for other games -->
   </div>
-</div>
 
-<div class="container">
-  <div class="box">
-    <h3 class="title is-4 has-text-centered">Follow Us</h3>
-    <div class="columns">
-      <div class="column">
-        <a href="https://www.facebook.com/sakhawat151363" target="_blank" class="box">
-          <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook Icon" style="width: 30px;">
-          যেকোন সমস্যা সরাসরি আমাদের ফেসবুক পেজে মেসেজ দিন।
-        </a>
-      </div>
-      <div class="column">
-        <a href="https://wa.me/8801301986034" target="_blank" class="box">
-          <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp Icon" style="width: 30px;">
-          যেকোন সমস্যা সরাসরি আমাদের WhatsApp এ মেসেজ দিন।
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<footer>
-  &copy; 2025 FF BattleZone. All rights reserved.
-</footer>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-    if ($navbarBurgers.length > 0) {
-      $navbarBurgers.forEach(el => {
-        el.addEventListener('click', () => {
-          const target = el.dataset.target;
-          const $target = document.getElementById(target);
-          el.classList.toggle('is-active');
-          $target.classList.toggle('is-active');
-        });
-      });
-    }
-  });
-</script>
+  <footer>
+    &copy; ২০২৪ টুর্নামেন্ট। সকল অধিকার সংরক্ষিত।
+  </footer>
 
 </body>
+
 </html>
